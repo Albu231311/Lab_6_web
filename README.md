@@ -6,6 +6,12 @@ Evidencia del funcionamineto
 ![3](https://github.com/user-attachments/assets/64036e20-544e-4fef-ad70-234977a0543d)
 ![2](https://github.com/user-attachments/assets/dc73cd88-9bf2-46a3-87eb-97edc3640361)
 
+¿Cómo correrlo?
+Crear imagen: docker build -t laliga-backend .
+Ejecutar el contenedor
+docker run -d -p 8080:8080 --name laliga-container laliga-backend
+
+
 
 
 
