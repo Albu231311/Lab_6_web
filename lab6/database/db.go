@@ -1,7 +1,7 @@
 package database
 
 import (
-	"laliga/models"
+	"lab6/models"
 	"log"
 
 	"gorm.io/driver/sqlite"
@@ -10,18 +10,23 @@ import (
 
 var DB *gorm.DB
 
-// Conexión a la base de datos y migraciones
+// Connect inicializa la conexión a la base de datos y realiza la migración automática del modelo Match
 func Connect() {
 	var err error
-	DB, err = gorm.Open(sqlite.Open("laliga_matches.db"), &gorm.Config{})
+
+	// Abrir la conexión con una base de datos SQLite llamada matches.db
+	DB, err = gorm.Open(sqlite.Open("matches.db"), &gorm.Config{})
 	if err != nil {
-		log.Fatal("❌ No se pudo conectar a la base de datos:", err)
+		// Si hay un error al conectar, detener la aplicación
+		log.Fatal("Unable to connect the DB:", err)
 	}
 
+	// Ejecutar la migración automática del modelo Match (crear tabla si no existe)
 	err = DB.AutoMigrate(&models.Match{})
 	if err != nil {
-		log.Fatal("❌ Error al migrar la base de datos:", err)
+		log.Fatal("Unable to migrate the model:", err)
 	}
 
-	log.Println("✅ Base de datos conectada y migrada correctamente")
+	// Mensaje informativo si todo funcionó correctamente
+	log.Println("Connection successfully")
 }

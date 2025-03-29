@@ -1,0 +1,90 @@
+Guía de Uso de la API de La Liga Tracker
+
+Endpoints Disponibles:
+
+1. Obtener todos los partidos
+- Método: GET
+- Ruta: /matches
+- Descripción: Obtiene la lista completa de todos los partidos registrados.
+- Respuesta exitosa: Devuelve un arreglo JSON con los partidos registrados.
+
+2. Obtener un partido por ID
+- Método: GET
+- Ruta: /matches/{id}
+- Descripción: Obtiene los detalles de un partido específico identificado por su ID.
+- Parámetros:
+  - id (Parámetro de ruta): El ID único del partido a consultar.
+- Respuesta exitosa: Devuelve un objeto JSON con los detalles del partido solicitado.
+
+3. Crear un nuevo partido
+- Método: POST
+- Ruta: /matches
+- Descripción: Crea un nuevo partido con los detalles proporcionados.
+- Cuerpo de la solicitud (JSON):
+{
+  "homeTeam": "Comunicaciones",
+  "awayTeam": "Municipal",
+  "matchDate": "2024-05-16"
+}
+- Respuesta exitosa: Devuelve el objeto JSON del partido recién creado.
+
+4. Actualizar un partido existente
+- Método: PUT
+- Ruta: /matches/{id}
+- Descripción: Actualiza la información de un partido existente, identificado por su ID.
+- Parámetros:
+  - id (Parámetro de ruta): El ID único del partido a actualizar.
+- Cuerpo de la solicitud (JSON):
+{
+  "homeTeam": "Comunicaciones",
+  "awayTeam": "Municipal",
+  "matchDate": "2024-05-16"
+}
+- Respuesta exitosa: Devuelve el objeto JSON del partido actualizado.
+
+5. Eliminar un partido
+- Método: DELETE
+- Ruta: /matches/{id}
+- Descripción: Elimina un partido específico identificado por su ID.
+- Parámetros:
+  - id (Parámetro de ruta): El ID único del partido a eliminar.
+- Respuesta exitosa: Respuesta vacía con el código de estado 204 No Content si el partido fue eliminado correctamente.
+
+6. Incrementar el total de goles de un partido
+- Método: PATCH
+- Ruta: /matches/{id}/goals
+- Descripción: Incrementa en 1 el contador de goles del partido especificado.
+- Parámetros:
+  - id (Parámetro de ruta): El ID único del partido a modificar.
+- Respuesta exitosa: Devuelve el objeto JSON con el número actualizado de goles.
+
+7. Incrementar el número de tarjetas amarillas de un partido
+- Método: PATCH
+- Ruta: /matches/{id}/yellowcards
+- Descripción: Incrementa en 1 el número de tarjetas amarillas del partido especificado.
+- Parámetros:
+  - id (Parámetro de ruta): El ID único del partido a modificar.
+- Respuesta exitosa: Devuelve el objeto JSON con el número actualizado de tarjetas amarillas.
+
+8. Incrementar el número de tarjetas rojas de un partido
+- Método: PATCH
+- Ruta: /matches/{id}/redcards
+- Descripción: Incrementa en 1 el número de tarjetas rojas del partido especificado.
+- Parámetros:
+  - id (Parámetro de ruta): El ID único del partido a modificar.
+- Respuesta exitosa: Devuelve el objeto JSON con el número actualizado de tarjetas rojas.
+
+9. Marcar que un partido tuvo tiempo extra
+- Método: PATCH
+- Ruta: /matches/{id}/extratime
+- Descripción: Marca que el partido especificado tuvo tiempo extra.
+- Parámetros:
+  - id (Parámetro de ruta): El ID único del partido a modificar.
+- Respuesta exitosa: Devuelve el objeto JSON con el campo extraTime actualizado a true.
+
+Formatos de Respuesta
+
+Cada endpoint devolverá una respuesta en formato JSON. A continuación se describe la estructura general de la respuesta:
+
+- Éxito: Un código de estado HTTP adecuado (por ejemplo, 200 OK, 201 Created, 204 No Content) junto con el objeto o lista de objetos solicitados.
+- Error: Un código de estado HTTP adecuado (por ejemplo, 400 Bad Request, 404 Not Found, 500 Internal Server Error) acompañado de un mensaje de error en formato JSON.
