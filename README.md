@@ -78,7 +78,7 @@ docker build -t laliga-backend .
 Para correr el contenedor en segundo plano y exponer el puerto 8080, ejecuta el siguiente comando:
 
 docker run -d -p 8080:8080 --name laliga-container laliga-backend
-   ```bash
+  
 
 Evidencia del funcionamineto
 ![crear partido](https://github.com/user-attachments/assets/766cb4ff-93f0-4aff-8ba2-73ba5a72410a)
@@ -88,7 +88,7 @@ Evidencia del funcionamineto
 ![2](https://github.com/user-attachments/assets/dc73cd88-9bf2-46a3-87eb-97edc3640361)
 
 
-
+ ```bash
 
 
 
