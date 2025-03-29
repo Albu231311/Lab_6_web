@@ -13,22 +13,72 @@ Contenerización con Docker para fácil despliegue.
 Asegúrate de tener instalado:
 
 Docker
+## Métodos y Endpoints
 
-🚀 Instrucciones para ejecutar el backend
-1️⃣ Clonar el repositorio
-git clone https://github.com/tu-usuario/tu-repositorio.git
-cd tu-repositorio
+### 1️⃣ **GET /api/matches
+   **Descripción**: Obtiene todos los partidos.
+
+### 2️⃣ **GET /api/matches/:id
+   **Descripción**: Obtiene un partido específico por su ID.
+   - **Parámetros**: 
+     - `:id` - ID del partido.
+
+### 3️⃣ **POST /api/matches
+   **Descripción**: Crea un nuevo partido.
+   - **Cuerpo de la solicitud: Información del partido a crear.
+
+### 4️⃣ **PUT /api/matches/:id
+   **Descripción**: Actualiza un partido existente.
+   - **Parámetros**:
+     - `:id` - ID del partido.
+   - **Cuerpo de la solicitud: Datos actualizados del partido.
+
+### 5️⃣ **DELETE /api/matches/:id
+   **Descripción**: Elimina un partido específico por ID.
+   - **Parámetros**:
+     - `:id` - ID del partido.
+
+### 6️⃣ **PATCH /api/matches/:id/goals
+   **Descripción**: Registra un gol en el partido.
+   - **Parámetros**:
+     - `:id` - ID del partido.
+   - **Cuerpo de la solicitud**: Información del gol (jugador, minuto, etc.).
+
+### 7️⃣ **PATCH /api/matches/:id/yellowcards
+   **Descripción**: Registra una tarjeta amarilla en el partido.
+   - **Parámetros**:
+     - `:id` - ID del partido.
+   - **Cuerpo de la solicitud**: Información del jugador y minuto de la tarjeta amarilla.
+
+### 8️⃣ **PATCH /api/matches/:id/redcards
+   **Descripción**: Registra una tarjeta roja en el partido.
+   - **Parámetros**:
+     - `:id` - ID del partido.
+   - **Cuerpo de la solicitud**: Información del jugador y minuto de la tarjeta roja.
+
+### 9️⃣ **PATCH /api/matches/:id/extratime
+   **Descripción**: Registra el tiempo extra del partido.
+   - **Parámetros**:
+     - `:id` - ID del partido.
+   - **Cuerpo de la solicitud**: Tiempo adicional del partido.
+
+# 🚀 Instrucciones para ejecutar el backend
+
+1️⃣ **Clonar el repositorio**  
+   Clona el repositorio y entra en el directorio del proyecto:
+   git clone https://github.com/tu-usuario/tu-repositorio.git
+   cd tu-repositorio
 2️⃣ Construir la imagen de Docker
-Ejecuta el siguiente comando en la raíz del proyecto para crear la imagen del backend:
+
+  Ejecuta el siguiente comando en la raíz del proyecto para crear la imagen del backend:
 docker build -t laliga-backend .
 
-3️⃣ Ejecutar el contenedor
-Para correr el contenedor en segundo plano y exponer el puerto 8080:
+## 3️⃣ Ejecutar el contenedor
+
+Para correr el contenedor en segundo plano y exponer el puerto 8080, ejecuta el siguiente comando:
 
 docker run -d -p 8080:8080 --name laliga-container laliga-backend
-
-4️⃣ Verificar que el contenedor está corriendo
-docker ps
+   ```bash
 
 Evidencia del funcionamineto
 ![crear partido](https://github.com/user-attachments/assets/766cb4ff-93f0-4aff-8ba2-73ba5a72410a)
