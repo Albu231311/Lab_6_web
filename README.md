@@ -87,7 +87,16 @@ Evidencia del funcionamineto
 ![3](https://github.com/user-attachments/assets/64036e20-544e-4fef-ad70-234977a0543d)
 ![2](https://github.com/user-attachments/assets/dc73cd88-9bf2-46a3-87eb-97edc3640361)
 
-
+Ejemplo de formato para añadir un partido(post):
+{
+  "homeTeam": "Cremas",
+  "awayTeam": "Rojos",
+  "matchDate": "2025-03-30",
+  "totalGoals": 0,
+  "yellowCards": 0,
+  "redCards": 0,
+  "extraTime": false
+}
  ```bash
 
 
